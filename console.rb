@@ -1,7 +1,7 @@
 require('pry-byebug')
 require_relative('./models/customers.rb')
 require_relative('./models/films.rb')
-# require_relative('./models/tickets.rb')
+require_relative('./models/tickets.rb')
 
 # Ticket.delete_all()
 Film.delete_all()
@@ -31,6 +31,14 @@ film2.title = "Boyz n the Hood"
 film2.update()
 
 # film2.delete()
+
+ticket1 = Ticket.new({ 'customer_id' => customer1.id, 'film_id' => film1.id})
+ticket1.save()
+ticket2 = Ticket.new({ 'customer_id' => customer2.id, 'film_id' => film2.id})
+ticket2.save()
+ticket3 = Ticket.new({ 'customer_id' => customer3.id, 'film_id' => film3.id})
+ticket3.save()
+
 
 binding.pry
 nil
