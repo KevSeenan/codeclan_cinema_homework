@@ -1,5 +1,6 @@
 require_relative("../db/sql_runner")
 require_relative("./films.rb")
+require_relative("./tickets.rb")
 
 class Customer
 
@@ -57,6 +58,19 @@ class Customer
     values = [@id]
     films = SqlRunner.run(sql, values)
     return films.map{|film_hash| Film.new(film_hash)}
+  end
+
+  # def sufficient_funds?(film)
+  #   return funds >= film.price()
+  # end
+
+  def tickets()
+    # Customer buys a ticket, and price of ticket is subtracted from customer funds
+    sql = "SELECT SUM(films.price) FROM films INNER JOIN tickets
+            ON films.id = tickets.film_id WHERE tickets.customer_id = $1"
+    values = [@id]
+    result = SqlRunner.run(sql, values).first
+    return @funds - result['sum'].to_i()
   end
 
 end

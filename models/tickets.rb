@@ -1,4 +1,6 @@
 require_relative("../db/sql_runner")
+require_relative("./customers.rb")
+require_relative("./films.rb")
 
 class Ticket
 

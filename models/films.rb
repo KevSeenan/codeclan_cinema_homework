@@ -1,5 +1,6 @@
 require_relative("../db/sql_runner")
-equire_relative("./customers.rb")
+require_relative("./customers.rb")
+require_relative("./tickets.rb")
 
 class Film
 
