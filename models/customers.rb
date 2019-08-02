@@ -20,15 +20,19 @@ class Customer
 
   def self.all()
     sql = "SELECT * FROM customers"
-    values = []
-    customers = SqlRunner.run(sql, values)
+    customers = SqlRunner.run(sql)
     result = customers.map{|customer| Customer.new(customer)}
     return result
   end
 
   def self.delete_all()
     sql = "DELETE from customers"
-    values = []
+    SqlRunner.run(sql)
+  end
+
+  def update()
+    sql = "UPDATE customers SET (name, funds) = ($1, $2) WHERE id = $3"
+    values = [@name, @funds, @id]
     SqlRunner.run(sql, values)
   end
 
