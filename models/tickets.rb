@@ -23,4 +23,18 @@ class Ticket
     return result
   end
 
+  def self.find(id)
+    sql = "SELECT * FROM tickets WHERE id = $1"
+    values = [id]
+    result = SqlRunner.run(sql, values)
+    ticket = self.new(result.first)
+    return ticket
+  end
+
+  def update()
+    sql = "UPDATE tickets SET (customer_id, film_id) = ($1, $2) WHERE id = $3"
+    values = [@customer_id, @film_id, @id]
+    SqlRunner.run(sql, values)
+  end
+
 end
