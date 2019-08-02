@@ -27,5 +27,10 @@ film2.save()
 film3 = Film.new({ 'title' => 'Pulp Fiction', 'price' => 5})
 film3.save()
 
+film2.title = "Boyz n the Hood"
+film2.update()
+
+film2.delete()
+
 binding.pry
 nil
