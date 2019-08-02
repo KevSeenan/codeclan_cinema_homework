@@ -1,3 +1,5 @@
+require_relative("../db/sql_runner")
+
 class Ticket
 
   attr_reader :id
