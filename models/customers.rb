@@ -25,6 +25,14 @@ class Customer
     return result
   end
 
+  def self.find(id)
+    sql = "SELECT * FROM customers WHERE id = $1"
+    values = [id]
+    result = SqlRunner.run(sql, values)
+    customer = self.new(result.first)
+    return customer
+  end
+
   def self.delete_all()
     sql = "DELETE from customers"
     SqlRunner.run(sql)
@@ -35,5 +43,7 @@ class Customer
     values = [@name, @funds, @id]
     SqlRunner.run(sql, values)
   end
+
+
 
 end
