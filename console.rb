@@ -18,5 +18,7 @@ customer3.name = "Nanny Ogg"
 customer3.funds = 150
 customer3.update()
 
+customer3.delete()
+
 binding.pry
 nil
