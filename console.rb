@@ -5,7 +5,7 @@ require_relative('./models/customers.rb')
 
 # Ticket.delete_all()
 # Film.delete_all()
-# Customer.delete_all()
+Customer.delete_all()
 
 customer1 = Customer.new({ 'name' => 'Kevin Seenan', 'funds' => 50})
 customer1.save()
