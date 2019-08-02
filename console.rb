@@ -4,7 +4,7 @@ require_relative('./models/films.rb')
 # require_relative('./models/tickets.rb')
 
 # Ticket.delete_all()
-# Film.delete_all()
+Film.delete_all()
 Customer.delete_all()
 
 customer1 = Customer.new({ 'name' => 'Kevin Seenan', 'funds' => 50})
@@ -30,7 +30,7 @@ film3.save()
 film2.title = "Boyz n the Hood"
 film2.update()
 
-film2.delete()
+# film2.delete()
 
 binding.pry
 nil
