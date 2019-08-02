@@ -38,7 +38,6 @@ class Film
     values = [@title, @price, @id]
     SqlRunner.run(sql, values)
   end
-  
 
   def delete()
     sql = "DELETE FROM films WHERE id = $1"
