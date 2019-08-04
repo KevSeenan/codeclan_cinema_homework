@@ -5,7 +5,8 @@ DROP TABLE films;
 CREATE TABLE customers(
   id SERIAL PRIMARY KEY,
   name VARCHAR(255),
-  funds INT
+  funds INT,
+  tickets_purchased INT
 );
 
 CREATE TABLE films(

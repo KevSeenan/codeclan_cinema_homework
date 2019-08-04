@@ -74,6 +74,7 @@ class Customer
   end
 
   def check_tickets()
+
     sql = "SELECT tickets.customer_id FROM tickets WHERE customer_id = $1"
     values = [@id]
     result = SqlRunner.run(sql, values)

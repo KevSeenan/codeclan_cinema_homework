@@ -57,7 +57,7 @@ class Film
             ON customers.id = tickets.customer_id WHERE tickets.film_id = $1"
     values = [@id]
     customers = SqlRunner.run(sql, values)
-    return films.map{|customer_hash| Customer.new(customer_hash)}
+    return customers.map{|customer_hash| Customer.new(customer_hash)}
   end
 
 end
