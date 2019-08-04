@@ -73,4 +73,12 @@ class Customer
     return @funds - result['sum'].to_i()
   end
 
+  def check_tickets()
+    sql = "SELECT tickets.customer_id FROM tickets WHERE customer_id = $1"
+    values = [@id]
+    result = SqlRunner.run(sql, values)
+    return tickets
+    #this is returning the value for funds when a tickect has been bought
+    #not the amount of tickets
+  end
 end
