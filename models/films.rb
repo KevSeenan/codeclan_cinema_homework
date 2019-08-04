@@ -60,4 +60,12 @@ class Film
     return customers.map{|customer_hash| Customer.new(customer_hash)}
   end
 
+  def check_customers()
+
+    sql = "SELECT tickets.film_id FROM tickets WHERE customer_id = $1"
+    values = [@id]
+    result = SqlRunner.run(sql, values)
+    return customers
+  end
+
 end
